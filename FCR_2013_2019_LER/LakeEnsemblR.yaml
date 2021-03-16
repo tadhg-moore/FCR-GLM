@@ -48,16 +48,21 @@ output:
       - ice_height
 scaling_factors:                                # scaling factors to apply to meteorological input, either for all models or model-specific. If not specified, no scaling is applied. If both "all" and model-specific are specified for a certain model, only the model-specific scaling is applied.
    all:
-      wind_speed: 0.8
-      swr: 0.8
+      wind_speed: 0.9
+      swr: 0.9
    Simstrat:
       wind_speed: 1.0
 model_parameters:
    FLake:                                       # FLake specific parameters
       fetch_lk: 711.699 # typical wind fetch [m]
    GLM:                                         # GLM specific parameters
-      bsn_len: 3678                             # length of the lake basin, at crest height [m]
+      bsn_len: 711.699 # length of the lake basin, at crest height [m]
       bsn_wid: 226.03 # width of the lake basin, at crest height [m]
+      coef_mix_shear: 0.3 
+      coef_mix_turb: 0.51 
+      coef_mix_hyp: 0.6458725 
+      bsn_len_outl: 711.699 
+      bsn_wid_outl: 226.03 
    GOTM:                                        # GOTM specific parameters
       k_min: 3.6E-6                             # minimum turbulent kinetic energy [m^2/s^2; min=0.0]
    Simstrat:                                    # Simstrat specific parameters
