@@ -8,7 +8,7 @@ location:
   init_depth: 9.3
 time:
   start: 2013-05-16 00:00:00
-  stop: 2015-01-01 00:00:00
+  stop: 2013-06-15 00:00:00
   time_step: 3600.0
 config_files:
   GOTM: GOTM/gotm.yaml
@@ -38,7 +38,7 @@ inflows:
 output:
   file: ensemble_output
   format: netcdf
-  depths: 0.25
+  depths: 0.5
   compression: 4
   time_unit: hour
   time_step: 1.0
@@ -76,14 +76,14 @@ model_parameters:
     turbulence/turb_param/k_min: 5.0e-08
     restart/load: false
   Simstrat:
-    ModelParameters/a_seiche: 1.0e-09
+    ModelParameters/a_seiche: 0.01
     ModelParameters/k_min: 1.0e-06
     ModelParameters/p_windf: 1.0
-    ModelParameters/hgeo: 0.01
-    ModelParameters/beta_sol: 0.2
+    ModelParameters/hgeo: 0.1
+    ModelParameters/beta_sol: 0.3
     ModelParameters/q_nn: 1.0
-    ModelParameters/p_air: 1013.0
-    Simulation/Continue from last snapshot: false
+    ModelParameters/p_air: 960.0
+    Simulation/Continue from last snapshot: true
   MyLake:
     Phys.par/C_shelter: 0.0001
 calibration:
