@@ -13,7 +13,7 @@
   "Output" : {
     "Path"  : "output",! /LER/ Path to result folder
     "Depths" : 0.5,! /LER/ Output depths can be an integer (interpreted as interval in m), a list with depths or a path to a file (containing an integer or a list)
-    "Times"  : 24,! /LER/ Output times can be a number (interpreted as every x time steps), a list with times or a path to a file (containing a number or a list)
+    "Times"  : 1,! /LER/ Output times can be a number (interpreted as every x time steps), a list with times or a path to a file (containing a number or a list)
     "OutputDepthReference": "surface",                  ! "surface": depth of output variables is referenced to lake level, "bottom": depth of output variables is referenced to lake bottom
     "All"   : true,                                     ! True: All variables are written out, false: only variables in list "variables" are written
     "Variables" : ["T"]                                 ! Variables written to file (if "all" = false), example: ["T", "S", "WaterH"]
@@ -39,26 +39,26 @@
     "Timestep s"                  : 3600,! /LER/ Simulation timestep in seconds
     "Start year"                  : 2013,! /LER/ Starting year
     "Start d"                     : 135,! /LER/ Simulation start in days since 01.01. of starting year. 
-    "End d"                       : 2530,! /LER/ Simulation end: 52959 for full historical simulation from 1861, 
+    "End d"                       : 165,! /LER/ Simulation end: 52959 for full historical simulation from 1861, 
     "DisplaySimulation"           : 0,                  ! 0: No display, 1: Display when output is written, 2: Display every iteration
-    "Continue from last snapshot" : false               ! If true simulation continues from last snapshot (if present in output folder). Default: false
+    "Continue from last snapshot" : true,! If true simulation continues from last snapshot (if present in output folder). Default: false
   },
   "ModelParameters" : {
     "lat"           : 37.30768,! /LER/ Latitude in [°]
-    "p_air"         : 1013,! /LER/ Air pressure in [mbar]
-    "a_seiche"      : 0.000311424956929605,! Fraction of wind energy which goes into seiche energy [-]
+    "p_air"         : 960,! /LER/ Air pressure in [mbar]
+    "a_seiche"      : 0.01,! Fraction of wind energy which goes into seiche energy [-]
     "a_seiche_w"    : 0,                                ! Fraction of wind energy which goes into seiche energy in winter [-] (only used if SplitSeicheParameter=true)
     "strat_sumr"    : 0,                                ! If maximum N2 (Brundt-Vaisala frequency) is below this threshold, a_seiche_w is used instead of a_seiche (only used if SplitSeicheParameter=true)
-    "q_nn"          : 1.0,                              ! Fit parameter for distribution of seiche energy [-]
+    "q_nn"          : 1,! Fit parameter for distribution of seiche energy [-]
     "f_wind"        : 1.0,                              ! Ratio of forcing wind to wind speed at 10 m above lake level [-]
     "c10"           : 1,                                ! Wind drag coefficient, a physical constant around 0.001 if WindDragModel = 1 and a calibration parameter around 1 if WindDragModel = 2 or 3
     "cd"            : 0.002,                            ! Bottom drag coefficient [-]
-    "hgeo"          : 0.1,                              ! Geothermal heat flux [W/m2]
-    "k_min"         : 1e-09,
+    "hgeo"          : 0.1,! Geothermal heat flux [W/m2]
+    "k_min"         : 1e-06,
     "p_sw"          : 1.0,                              ! Fit parameter for absorption of short wave radiation from sky [-]
     "p_lw"          : 1.0,                              ! Fit parameter for absorption of IR radiation from sky [-]
-    "p_windf"       : 1,                                ! Fit parameter for convective and latent heat fluxes [-]
-    "beta_sol"      : 0.3,                              ! Fraction of short-wave radiation directly absorbed as heat by water [-]
+    "p_windf"       : 1,! Fit parameter for convective and latent heat fluxes [-]
+    "beta_sol"      : 0.3,! Fraction of short-wave radiation directly absorbed as heat by water [-]
     "wat_albedo"    : 0.08,                             ! User defined water albedo [-] (only used if UserDefinedWaterAlbedo = true)
     "p_albedo"      : 1.0,                              ! Fit parameter for albedo of ice, snow-ice and snow [-] (only used if IceModel = 1)
     "freez_temp"    : 0.00,                             ! Freezing temperature of water [°C] (only used if IceModel = 1)
